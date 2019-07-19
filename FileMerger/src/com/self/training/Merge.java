@@ -43,7 +43,7 @@ try
 	  {
 		  if (metaData.contains(fileName))
 		{
-		  File f = new File("/root/Desktop/Data/BatchData/"+fileName);
+		  File f = new File("/root/Desktop/Data/"+fileName);
 		  f.delete();
 		}
 	 }
