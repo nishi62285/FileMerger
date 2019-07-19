@@ -33,6 +33,7 @@ public static void Merge() throws URISyntaxException
 {
 try 
 {
+	PrintWriter metaWriter = new PrintWriter("/root/Desktop/Data/meta.txt");
 	java.nio.file.Path metaPath = Paths.get("/root/Desktop/Data/meta.txt");
 	String metaData = new String(Files.readAllBytes(metaPath));
 	File dir = new File("/root/Desktop/Data/BatchData/");
@@ -46,13 +47,17 @@ try
 		  File f = new File("/root/Desktop/Data/"+fileName);
 		  f.delete();
 		}
+		 else
+		  {	 
+			 metaWriter.println(Arrays.toString(fileNames));
+			 metaWriter.close();
+		  }
 	 }
 	}
 	 else
 	  {
-		 PrintWriter p = new PrintWriter("/root/Desktop/Data/meta.txt");
-		 p.println(Arrays.toString(fileNames));
-		 p.close();
+		 metaWriter.println(Arrays.toString(fileNames));
+		 metaWriter.close();
 	  }
 	Configuration conf = new Configuration();
 	FileSystem fs =  FileSystem.get(conf);	
